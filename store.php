@@ -44,7 +44,7 @@ class Store
 
     public function rendered()
     {
-        $this->render_values( $this->state );
+        $this->render_values();
         return $this->state;
     }
 
@@ -63,19 +63,15 @@ class Store
         return $value;
     }
 
-    private function render_values( array &$arr )
+    private function render_values()
     {
+        array_walk_recursive( $this->state, function ( &$item ) {
 
-        foreach ( $arr as $key => $value ) {
-
-            if ( $value instanceof Value ) {
-                $arr[$key] = $value->render();
-            } elseif ( is_array( $value ) ) {
-                $this->render_values( $value );
+            if ( $item instanceof Value ) {
+                $item = $item->render();
             }
 
-        }
-
+        } );
     }
 
 }
