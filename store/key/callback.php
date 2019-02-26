@@ -27,7 +27,7 @@ class Callback implements Value
 
     private function call( array $args = array() )
     {
-        $this->returned = call_user_func( $this->callable, $args );
+        $this->returned = call_user_func_array( $this->callable, $args );
         $this->called = true;
     }
 
