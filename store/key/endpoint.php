@@ -36,7 +36,7 @@ class Endpoint implements Value
 
         if ( is_array( $args ) ) {
             return $this->get_all( $args );
-        } else {
+        } elseif ( $args )  {
             return $this->get_by_id( $args );
         }
 
