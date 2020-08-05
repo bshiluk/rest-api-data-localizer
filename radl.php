@@ -59,7 +59,7 @@ if ( !class_exists( 'RADL' ) ) {
         private static function autoloader( $class_name )
         {
             if ( strpos( $class_name, 'RADL' ) === 0 ) {
-                require plugin_dir_path( __DIR__ ) . str_replace( '\\', '/', str_replace( '_', '-', str_replace( 'radl', 'rest-api-data-localizer', strtolower( $class_name ) ) ) ) . '.php';
+                require plugin_dir_path __DIR__ . str_replace( '\\', '/', str_replace( '_', '-', str_replace( 'radl', '', strtolower( $class_name ) ) ) ) . '.php';
             }
         }
 
